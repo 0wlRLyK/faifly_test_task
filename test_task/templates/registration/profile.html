@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ profile.username }}'s user profile{% endblock %}
+{% block content %}
+    <h2>User's data</h2>
+    <ul>
+        {% if profile.full_name %}
+            <li>User's full name: {{ profile.full_name }}</li>
+        {% endif %}
+        <li>User's email: {{ profile.email }}</li>
+    </ul>
+{% endblock %}
