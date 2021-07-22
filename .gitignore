@@ -1,2 +1,5 @@
-/test_task/db.sqlite3
 .idea
+db.sqlite3
+/movies/templatetags/
+/movies/__pycache__/
+/movies/migrations/__pycache__/

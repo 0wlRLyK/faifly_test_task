@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "title": "Batman",
+    "description": "The Batman film franchise consists of a total of nine theatrical live-action films and two live-action serials featuring the DC Comics superhero Batman. "
+  },
+  {
+    "id": 2,
+    "title": "Deadpool",
+    "description": "A film series on the anti-superhero of the same name. A funnier and humorous side of X-Men."
+  },
+  {
+    "id": 3,
+    "title": "The Avengers",
+    "description": "A superhero film series produced by Marvel Studios based on the Marvel Comics superhero team of the same name, and part of the Marvel Cinematic Universe (MCU). The series features an ensemble cast from the Marvel Cinematic Universe series films, as they join forces for the peacekeeping organization S.H.I.E.L.D. led by Nick Fury."
+  },
+  {
+    "id": 4,
+    "title": "Captain America",
+    "description": "A superhero film series based on the Marvel Comics character Captain America, and part of the Marvel Cinematic Universe (MCU) series. The series is centered on Steve Rogers, a man from World War II era Brooklyn who is transformed into super-soldier Captain America."
+  },
+  {
+    "id": 5,
+    "title": "Iron Man",
+    "description": "A superhero film series based on the Marvel Comics character of the same name and part of the Marvel Cinematic Universe (MCU) series. Tony Stark AKA Iron Man, an industrialist and master engineer uses a powered exoskeleton to fight foes, with the aid of his personal assistant and love interest Pepper Potts."
+  },
+  {
+    "id": 6,
+    "title": "Guardians of the Galaxy",
+    "description": "A superhero film series based on the Marvel Comics superhero team Guardians of the Galaxy, and part of the Marvel Cinematic Universe (MCU) series. The series is centered on a band of former intergalactic outlaws, who have teamed together to protect the Galaxy from planetary threats. Led by Peter Quill (Star-Lord) the roster includes Gamora, Drax the Destroyer, Rocket Raccon & Groot."
+  },
+  {
+    "id": 7,
+    "title": "Harry Potter",
+    "description": "The Harry Potter films are a fantasy series based on the series of seven Harry Potter novels by British writer J. K. Rowling."
+  },
+  {
+    "id": 8,
+    "title": "The Matrix",
+    "description": "The Matrix collection depicts a complex science fiction story incorporating many philosophical elements. Written and directed by the Wachowskis and produced by Joel Silver."
+  },
+  {
+    "id": 9,
+    "title": "The Lord of the Rings",
+    "description": "The Lord of the Rings trilogy consists of three epic fantasy films, based on the influential novels written by J. R. R. Tolkien, directed by Peter Jackson."
+  },
+  {
+    "id": 10,
+    "title": "Mad Max",
+    "description": "Mad Max is an Australian dystopian action media franchise. Mad Max references are deeply embedded in popular culture; references to its dystopian, apocalyptic, and post-apocalyptic themes and bizarre landscape and desolate wasteland imagery."
+  },
+  {
+    "id": 11,
+    "title": "The Hunger Games",
+    "description": "A science fiction film series based on the novel of the same name by Suzanne Collins. The film series takes place in a dystopian post-apocalyptic future in the nation of Panem, featuring the protagonist, Katniss Everdeen."
+  },
+  {
+    "id": 12,
+    "title": "Black Panther",
+    "description": "Marvel's Black Panther film series"
+  },
+  {
+    "id": 13,
+    "title": "Suicide Squad",
+    "description": "Film series based on DC Comics antihero team of characters, Suicide Squad."
+  },
+  {
+    "id": 14,
+    "title": "Doctor Strange",
+    "description": "Doctor Strange films by Marvel Cinematic Universe"
+  },
+  {
+    "id": 15,
+    "title": "Thor",
+    "description": "A superhero film series based on the comic book character of the same name published by Marvel Comics, and part of the Marvel Cinematic Universe (MCU) film series. The series centers on Thor, the crown prince of Asgard."
+  },
+  {
+    "id": 16,
+    "title": "Wonder Woman",
+    "description": "A Film series based on the DC Comics superhero Wonder Woman."
+  },
+  {
+    "id": 17,
+    "title": "Spider-Man",
+    "description": "A superhero film series based on the Marvel Comics character 'Spider-Man'. The series is centered on Peter Parker, an academically gifted but socially inept freelance photographer who gets bitten by a genetically modified spider and gains spider-like abilities, all of which he uses to fight crime as a spider-masked vigilante learning for himself that great power comes with great responsibility."
+  },
+  {
+    "id": 18,
+    "title": "Pirates of the Caribbean",
+    "description": "A series of fantasy swashbuckler films based on Walt Disney's theme park ride of the same name. The films follow the adventures of Captain Jack Sparrow and take place in a fictional historical setting; a world ruled by the British Empire, the East India Trading Company and the Spanish Empire, with pirates representing freedom from the ruling powers."
+  },
+  {
+    "id": 19,
+    "title": "Ant-Man",
+    "description": "A superhero film series based on the Marvel Comics character Ant-Man, and part of the Marvel Cinematic Universe (MCU) series. The series is centered on Scott Lang, an ex-convict that stole a suit that allows him to change his size. Hank Pym, the original Ant-Man, discovered the subatomic particles that make the transformation possible. Hank mentors Scott to take over the superhero alias."
+  },
+  {
+    "id": 20,
+    "title": "Star Wars",
+    "description": "An epic space-opera theatrical film series, which depicts the adventures of various characters \"a long time ago in a galaxy far, far away….\""
+  },
+  {
+    "id": 21,
+    "title": "It",
+    "description": "A two film adaptation of Stephen King's novel of the same name. The franchise centers around a group of seven children living in Derry, Maine, who are terrorized by an eponymous being only to face their own personal demons in the process. This being returns to haunt the children every 27 years. The second installment, It Chapter Two follows the group 27 years after the events of the first installment."
+  },
+  {
+    "id": 22,
+    "title": "Back to the Future",
+    "description": "An American science fiction–comedy film series that follows the adventures of a high school student, Marty McFly and an eccentric scientist, Dr Emmett L. Brown as they use a DeLorean time machine to time travel to different periods in the history of Hill Valley, California."
+  },
+  {
+    "id": 23,
+    "title": "Finding Nemo",
+    "description": "A computer-animated adventure film series about a clownfish named Nemo, his over-protective father Marlin and a regal tang named Dory."
+  },
+  {
+    "id": 24,
+    "title": "The Hobbit",
+    "description": "The Hobbit collection is a three-part epic fantasy-adventure film directed and produced by Peter Jackson and based on J. R. R. Tolkien's fantasy novel of the same name. The trilogy of films are set in Middle-earth 60 years before \"The Lord of the Rings\", and will act as a prequel to Jackson's The Lord of the Rings trilogy."
+  },
+  {
+    "id": 25,
+    "title": "John Wick",
+    "description": "A neo-noir action thriller film series that follows a former assassin, Jonathan 'John' Wick who come outs of retirement seeking vengeance for the theft of his vintage car and the killing of his puppy."
+  },
+  {
+    "id": 26,
+    "title": "The Godfather",
+    "description": "Francis Ford Coppola’s trilogy films about the everyday life of a New York mafia family. With its star-studded cast these films would go down in history as some of the greatest Hollywood has ever produced."
+  },
+  {
+    "id": 27,
+    "title": "Monsters",
+    "description": "An American computer-animated comedy-adventure film series produced by Pixar Animation Studios"
+  },
+  {
+    "id": 28,
+    "title": "Toy Story",
+    "description": "Toy Story is a CGI animated media franchise created by Pixar and distributed by Walt Disney Pictures. The franchise is based on the anthropomorphic concept that all toys, unknown to humans, are secretly alive, and the films focus on a diverse group of toys that feature a classic cowboy named Sheriff Woody and a modern spaceman named Buzz Lightyear. The group unexpectedly embark on adventures that challenge and change them."
+  },
+  {
+    "id": 29,
+    "title": "The Incredibles",
+    "description": "The Incredibles Collection is an American animated film series produced by Disney and created by Pixar Animation Studios."
+  },
+  {
+    "id": 30,
+    "title": "The Arrival",
+    "description": "The Arrival is a 1996 American-Mexican science fiction horror film directed by David Twohy and starring Charlie Sheen. A sequel, Arrival II: The Second Arrival was released on November 6, 1998."
+  },
+  {
+    "id": 31,
+    "title": "The Maze Runner",
+    "description": "The film series consists of science-fiction dystopian action adventure films based on The Maze Runner novels by the American author James Dashner. They begin with Thomas who wakes up trapped in a maze with a group of other boys, he has no memory of the outside world other than dreams about an organization known as W.C.K.D. Only by piecing together fragments of his past with clues he discovers in the maze can Thomas hope to uncover his purpose and a way to escape."
+  },
+  {
+    "id": 32,
+    "title": "The Hangover",
+    "description": "The Hangover is a 2009 American comedy film, co-produced and directed by Todd Phillips and written by Jon Lucas and Scott Moore. It is the first film of The Hangover franchise. The film stars Bradley Cooper, Ed Helms, Zach Galifianakis, Heather Graham, Justin Bartha, and Jeffrey Tambor. The Hangover tells the story of Phil Wenneck, Stu Price and Alan Garner, who travel to Las Vegas for a bachelor party to celebrate their friend Doug Billings' impending marriage. However, Phil, Stu and Alan have no memory of the previous night's events and must find Doug before the wedding can take place. It was followed by 2 sequels."
+  },
+  {
+    "id": 33,
+    "title": "Kill Bill",
+    "description": "The movie is an epic-length revenge drama, with homages to earlier film genres, such as Hong Kong martial arts movies, Japanese samurai movies and Italian spaghetti westerns; an extensive use of popular music and pop culture references; and aestheticization of violence."
+  },
+  {
+    "id": 34,
+    "title": "Frozen",
+    "description": "Frozen features the sisterly love between the fearless optimist Anna, her mysterious sister Elsa and the snowman Olaf."
+  },
+  {
+    "id": 35,
+    "title": "Kingsman",
+    "description": "A British-American film series based on the adventures of the agents of Kingsman a fictional secret organisation. That began with the recruitment of an unrefined but promising street kid into the agency's ultra-competitive training program."
+  },
+  {
+    "id": 36,
+    "title": "Now You See Me",
+    "description": "Now You See Me is a series of heist thriller films that focus on the actions of a team of illusionists named \"The Four Horsemen\" who pull off near impossible heists."
+  },
+  {
+    "id": 37,
+    "title": "James Bond",
+    "description": "The James Bond film series is a British series of spy films based on the fictional character of MI6 agent James Bond, codename \"007\". With all of the action, adventure, gadgetry & film scores that Bond is famous for. (We do not consider the 1954 release of Casino Royale for this series because it was actually a television episode and not a theatrical film.)"
+  },
+  {
+    "id": 38,
+    "title": "Shrek",
+    "description": "The fairytale story of a large, strong, solitude-loving, intimidating ogre named Shrek, and his friends."
+  },
+  {
+    "id": 39,
+    "title": "X-Men",
+    "description": "A superhero film series about a team of mutant superheroes based on the Marvel Comics superheroes of the same name."
+  },
+  {
+    "id": 40,
+    "title": "Despicable Me",
+    "description": "The Despicable Me franchise centers on Gru, a super-villain (who later becomes a dad and superhero); his yellow-coloured Minions; and his three orphan girls, Margo, Edith and Agnes."
+  },
+  {
+    "id": 51,
+    "title": "Jurassic Park",
+    "description": "An American science fiction adventure film series based on the novel of the same name by Michael Crichton. The films center on the fictional Isla Nublar near Costa Rica in the Central American Pacific Coast, where a billionaire philanthropist and a small team of genetic scientists have created an amusement park of cloned dinosaurs."
+  },
+  {
+    "id": 52,
+    "title": "Sherlock Holmes",
+    "description": "The Adventures of Sherlock Holmes"
+  },
+  {
+    "id": 53,
+    "title": "Jumanji",
+    "description": "A series of films based around a 1981 fantasy children's picture book of the same name, written and illustrated by the American author Chris Van Allsburg. They follow the adventures of various people who find themselves imperiled when playing a magic board game called Jumanji that will either trap players within its dangerous jungle world or unleash its menaces into the real world. Ultimately, the only way to end the disruptions is to finish the game while enduring its resulting dangers with each succeeding move, after which everything is restored to normal outside of the players' memories."
+  },
+  {
+    "id": 54,
+    "title": "Men in Black",
+    "description": "A series of American science fiction action comedy films based on Malibu / Marvel comic book series The Men in Black by Lowell Cunningham. Stylized MIB and spawned 2 numbered sequels as well as a spin-off."
+  },
+  {
+    "id": 55,
+    "title": "Twilight",
+    "description": "The Twilight movies are a romantic fantasy vampire series based on the series of novels by Stephenie Meyer."
+  },
+  {
+    "id": 56,
+    "title": "Divergent",
+    "description": "A series of dystopian science fiction action films based on the Divergent novels by the American author Veronica Roth. Set in a dystopian and post-apocalyptic Chicago where people are divided into distinct factions based on human virtues. Beatrice Prior (Tris) is warned that she is Divergent and thus will never fit into any one of the factions. She along with Tobias Eaton (Four) soon learn that a sinister plot is brewing in the seemingly perfect society."
+  },
+  {
+    "id": 57,
+    "title": "Blade Runner",
+    "description": "An American neo-noir science-fiction film series set in a dystopian Los Angeles, depicting a future in which synthetic humans known as \"replicants\" are bio-engineered by the powerful Tyrell Corporation, to work on off-world colonies. Based on the novel Do Androids Dream of Electric Sheep?"
+  },
+  {
+    "id": 58,
+    "title": "Ice Age",
+    "description": "The Ice Age Movie Collection Release into theaters by Twentieth Century Fox Animation and Blue Sky Studios."
+  },
+  {
+    "id": 59,
+    "title": "How to Train Your Dragon",
+    "description": "This computer-animated action fantasy film series follows the adventures of a young Viking named Hiccup Horrendous Haddock III, son of Stoick the Vast, leader of the Viking island of Berk. Although initially dismissed as a clumsy and underweight misfit, he soon becomes renowned as a courageous expert in dragons, beginning with Toothless, a member of the rare Night Fury breed as his flying mount and his closest companion. Together with his friends, he manages the village's allied dragon population in defense of his home as leader of a flying corps of dragon riders. Upon becoming leaders of their kind, Hiccup and Toothless are forced to make choices that will truly ensure peace between people and dragons."
+  },
+  {
+    "id": 60,
+    "title": "The Terminator",
+    "description": "A series of science-fiction films about the futuristic conflict between the humans led by John Connor and the Terminators that are made and controlled by Skynet, a self-aware super computer that started Armageddon and may indeed end humanity for good. Skynet's most well-known products in its genocidal goals are the various terminator models, such as the T-800 (Model 101)."
+  },
+  {
+    "id": 71,
+    "title": "Planet of the Apes",
+    "description": "Rick Jaffa & Amanda Silver's reboot/remake of the Planet of the Apes inspired by news articles on apes raised as humans and advances in genetics. Jaffa conceived an idea for a film about a genetically enhanced chimp raised in a human household. The film series focuses on a chimpanzee, Caesar who when given a substance designed to help the brain repair itself, gains advanced intelligence which leads to an ape uprising."
+  },
+  {
+    "id": 72,
+    "title": "Taken",
+    "description": "A French action thriller film series based upon fictional former CIA operative Bryan Mills who is abroad in Europe."
+  },
+  {
+    "id": 73,
+    "title": "Fast & Furious",
+    "description": "An action film series centered on illegal street racing and heists."
+  },
+  {
+    "id": 74,
+    "title": "Kung Fu Panda",
+    "description": "The Kung Fu Panda series are computer-animated action comedy films set in a version of old China populated by humanoid talking animals, the plot revolves around a bumbling humanoid panda named Po who aspires to be a kung fu master."
+  },
+  {
+    "id": 75,
+    "title": "Madagascar",
+    "description": "Madagascar is an animated film series produced by DreamWorks Animation. Voices of Ben Stiller, Jada Pinkett Smith, Chris Rock and David Schwimmer are featured in the films. The plot follows the adventures of story of four Central Park Zoo animals who have spent their lives in blissful captivity and are unexpectedly shipped back to Africa."
+  },
+  {
+    "id": 76,
+    "title": "Home Alone",
+    "description": "This series of movies sees a child accidentally left behind by their family during Christmas to fend for themselves against burglars."
+  },
+  {
+    "id": 77,
+    "title": "Mission: Impossible",
+    "description": "Mission: Impossible is a series of a secret agent thriller films based on the popular television series. They chronicle the missions of a team of secret government agents known as the Impossible Missions Force (IMF) under the leadership of Hunt."
+  },
+  {
+    "id": 78,
+    "title": "Indiana Jones",
+    "description": "The Adventure films series from the Director George Lucas and Steven Spielberg, starring Harrison Ford as the archaeologist Dr. Henry Walton \"Indiana\" Jones, Jr.."
+  },
+  {
+    "id": 79,
+    "title": "Alien",
+    "description": "A science fiction horror film franchise, focusing on Lieutenant Ellen Ripley (Sigourney Weaver) and her battle with an extraterrestrial life-form, commonly referred to as \"the Alien\". Produced by 20th Century Fox, the series started with the 1979 film Alien, then Aliens in 1986, Alien³ in 1992, and Alien: Resurrection in 1997."
+  },
+  {
+    "id": 80,
+    "title": "Transformers",
+    "description": "The Transformers series follows the continuing battle between the Autobots and the Decepticons and ultimately, the triumph of good over evil. This collection includes the Theatrically Released Films of the transformers saga only."
+  }
+]
