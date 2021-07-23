@@ -1,12 +1,13 @@
 from django.views import generic
+from django.db.models import Avg
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.detail import SingleObjectMixin
 
-from .models import Movie, Genre, MoviesList, MovieSeries
-from .forms import GenreForm
+from .models import Movie, Genre, MoviesList, MovieSeries, Mark
+from .forms import GenreForm, MovieMarkForm
 
 
 class MoviesListByGenres(FormMixin, generic.ListView):
@@ -16,7 +17,9 @@ class MoviesListByGenres(FormMixin, generic.ListView):
 
     def get_queryset(self):
         genres_titles = self.request.GET.getlist("genres", Genre.objects.all().values_list("id", flat=True))
-        return Movie.objects.filter(genres__id__in=list(genres_titles)).prefetch_related("genres").distinct()
+        order = self.request.GET.get("order_by", "id")
+        return Movie.objects.filter(genres__id__in=list(genres_titles)).prefetch_related("genres").distinct().order_by(
+            order)
 
     def get_context_data(self, **kwargs):
         if self.request.user.is_authenticated:
@@ -26,25 +29,37 @@ class MoviesListByGenres(FormMixin, generic.ListView):
         return super().get_context_data()
 
 
-class MovieDetails(generic.DetailView):
+class MovieDetails(FormMixin, generic.DetailView):
+    form_class = MovieMarkForm
     queryset = Movie.objects.all().select_related("movie_series")
     template_name = "movies/movie_details.html"
     context_object_name = "movie"
 
     def get_context_data(self, **kwargs):
-        series, movies_lists = [], []
+        series, movies_lists, rated = [], [], True
         user = self.request.user
         if self.object.movie_series:
             series = Movie.objects.prefetch_related("genres").filter(
                 movie_series_id=self.object.movie_series
             ).exclude(id=self.object.id)
         if user.is_authenticated:
+            rated = Mark.objects.filter(movie_id=self.object.id, user_id=self.request.user.id).exists()
             movies_lists = MoviesList.objects.filter(user_id=user.id).exclude(
                 movies__exact=self.object
             )
-        context = super().get_context_data(series=series, movies_lists=movies_lists)
+        context = super().get_context_data(series=series, rated=rated, movies_lists=movies_lists)
         return context
 
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        movie = self.get_object()
+        if form.is_valid():
+            try:
+                Mark.objects.create(user_id=self.request.user.id, movie_id=movie.id, mark=form.cleaned_data.get("mark"))
+            except Exception:
+                return HttpResponseForbidden("You already rate this film")
+            return HttpResponseRedirect(reverse("movies:movie_details", args=[movie.id]))
+        return HttpResponseRedirect(reverse("movies:movie_details", args=[movie.id]))
 
 class MoviesListDetails(generic.DetailView):
     queryset = MoviesList.objects.select_related("user").prefetch_related("movies__genres").all()

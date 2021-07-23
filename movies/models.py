@@ -1,6 +1,8 @@
 from django.db import models
+from django.db.models.signals import pre_save, post_save
 from django.conf import settings
 from django.urls import reverse
+from django.dispatch import receiver
 
 
 class AbstractBaseFields(models.Model):
@@ -67,3 +69,20 @@ class MoviesList(AbstractBaseFields):
     @property
     def list_status(self):
         return "Public" if self.is_public else "Hidden"
+
+
+@receiver(pre_save, sender=Mark)
+def pre_set_avg_mark(sender, instance, *args, **kwargs):
+    if instance._state.adding and sender.objects.filter(movie_id=instance.movie_id, user_id=instance.user_id).exists():
+        raise Exception("This user is already rate this movie")
+
+
+@receiver(post_save, sender=Mark)
+def set_avg_mark(sender, instance, *args, **kwargs):
+    mark = sender.objects.filter(movie_id=instance.movie_id).values("id").annotate(
+        total=models.Sum("mark", output_field=models.IntegerField())
+    ).aggregate(average=models.Avg(models.F("total")))
+    print(mark)
+    movie = Movie.objects.get(id=instance.movie_id)
+    movie.mark = mark["average"]
+    movie.save()

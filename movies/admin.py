@@ -3,6 +3,10 @@ from . import models
 
 admin.site.register(models.Genre)
 admin.site.register(models.MoviesList)
+@admin.register(models.Mark)
+class MarkAdmin(admin.ModelAdmin):
+    list_display = ("movie", "user", "mark")
+    list_filter = ("mark",)
 
 
 class MoviesInline(admin.TabularInline):

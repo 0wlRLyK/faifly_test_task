@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 {% block title %}{{ movie.title }}{% endblock %}
 {% block content %}
     <div class="row align-items-start justify-content-md">
@@ -11,11 +12,37 @@
                 <hr class="my-2">
                 <p><i class="fas fa-calendar-alt"></i> {{ movie.release_year }}</p>
                 <p><i class="fas fa-star-half-alt"></i> {{ movie.mark }}</p>
+                {% if not rated %}
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for hidden in form.hidden_fields %}
+                            {{ hidden }}
+                        {% endfor %}
+                        {% for field in form.visible_fields %}
+                            <div class="mb-3">
+                                <label for="{{ field.html_name }}" class="form-label">{{ field.label }}</label>
+                                {#            {{ field.field.widget.input_type }}#}
+                                {% if field.field.widget.input_type == "checkbox" %}
+                                    {{ field |add_class:"form-check-input" }}
+                                {% else %}
+                                    {{ field |add_class:"form-control" }}
+                                {% endif %}
+
+                                <div class="form-text">{{ field.help_text }}</div>
+                                <div class="form-text">{{ field.errors }}</div>
+
+                            </div>
+                        {% endfor %}
+
+                        <input type="submit" class="btn btn-primary btn-lg w-100" value="Submit">
+                    </form>
+                {% endif %}
                 <p><i class="fas fa-film"></i> {% for genre in movie.genres.all %}
                     <a href="{% url "movies:by_genres" %}?genres={{ genre.id }}"
                        class="btn btn-outline-dark btn-sm">{{ genre.title }}</a>
                 {% endfor %}</p>
                 <p><i class="fas fa-info-circle"></i> {{ movie.description }}</p>
+
                 <p>
                     <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal"
                             data-bs-target="#addToListModal">
