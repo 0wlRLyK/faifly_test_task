@@ -1,36 +1,56 @@
 {% extends "base.html" %}
+{% load widget_tweaks %}
 {% block content %}
 
     {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
+        <div class="alert alert-danger" role="alert">
+            <p class="alert-heading">
+                <i class="fas fa-exclamation-triangle"></i> Your username and password didn't match. Please try again.
+            </p>
+        </div>
     {% endif %}
 
     {% if next %}
         {% if user.is_authenticated %}
-            <p>Your account doesn't have access to this page. To proceed,
-                please login with an account that has access.</p>
+            <div class="alert alert-warning" role="alert">
+                <p class="alert-heading">
+                    <i class="fas fa-exclamation-triangle"></i> Your account doesn't have access to this page. To
+                    proceed,
+                    please login with an account that has access.
+                </p>
+            </div>
+
         {% else %}
-            <p>Please login to see this page.</p>
+            <div class="alert alert-warning" role="alert">
+                <p class="alert-heading">
+                    <i class="fas fa-exclamation-triangle"></i> Please login to see this page.
+                </p>
+            </div>
         {% endif %}
     {% endif %}
 
     {% if not user.is_authenticated %}
         <form method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
-            <table>
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                <div class="mb-3">
+                    <label for="{{ field.html_name }}" class="form-label">{{ field.label }}</label>
+                    {#            {{ field.field.widget.input_type }}#}
+                    {% if field.field.widget.input_type == "checkbox" %}
+                        {{ field |add_class:"form-check-input" }}
+                    {% else %}
+                        {{ field |add_class:"form-control" }}
+                    {% endif %}
 
-                <tr>
-                    <td>{{ form.username.label_tag }}</td>
-                    <td>{{ form.username }}</td>
-                </tr>
+                    <div class="form-text">{{ field.help_text }}</div>
+                    <div class="form-text">{{ field.errors }}</div>
 
-                <tr>
-                    <td>{{ form.password.label_tag }}</td>
-                    <td>{{ form.password }}</td>
-                </tr>
-            </table>
-
-            <input type="submit" value="login"/>
+                </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-primary btn-lg w-100" value="Submit">
             <input type="hidden" name="next" value="{{ next }}"/>
         </form>
 

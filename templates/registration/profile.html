@@ -2,11 +2,26 @@
 
 {% block title %}{{ profile.username }}'s user profile{% endblock %}
 {% block content %}
-    <h2>User's data</h2>
-    <ul>
-        {% if profile.full_name %}
-            <li>User's full name: {{ profile.full_name }}</li>
-        {% endif %}
-        <li>User's email: {{ profile.email }}</li>
-    </ul>
+    <h2>User's {{ profile.username }} movies lists:</h2>
+    <hr class="my-4">
+    <div class="list-group">
+        {% for movies_list in movies_lists %}
+            <div class="list-group-item list-group-item-action" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <a href="{{ movies_list.get_absolute_url }}"><h5 class="mb-1">{{ movies_list.title }}</h5></a>
+                    <small>{{ movies_list.list_status }}</small>
+                </div>
+                <p class="mb-1">{{ movies_list.description }}</p>
+                {% if profile.id == user.id %}
+                    <small><a href="{% url "movies:movies_list_update" movies_list.pk %}">
+                        <i class="fas fa-edit"></i> Edit list</a>
+                    </small>
+                {% endif %}
+            </div>
+
+        {% endfor %}
+        <a href="{% url "movies:movies_list_create" %}" class="btn btn-primary btn-lg w-100">
+            <i class="fas fa-plus-circle"></i> Create new movie list
+        </a>
+    </div>
 {% endblock %}

@@ -2,10 +2,12 @@ from django.views.generic import CreateView, DetailView
 from django.urls import reverse
 from django.contrib.auth import get_user_model, authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from movies.models import MoviesList
 
 
 class UserProfile(DetailView):
-    model = get_user_model()
+    queryset = User.objects.all().prefetch_related("movies_lists")
     context_object_name = "profile"
     template_name = "registration/profile.html"
 
@@ -15,6 +17,14 @@ class UserProfile(DetailView):
         except AttributeError:
             user = self.request.user
         return user
+
+    def get_context_data(self, **kwargs):
+        if self.request.user.id == self.object.id:
+            movies_lists = MoviesList.objects.filter(user_id=self.object.id)
+        else:
+            movies_lists = MoviesList.objects.filter(user_id=self.object.id, is_public=True)
+        context = super().get_context_data(movies_lists=movies_lists)
+        return context
 
 
 class UserSignUp(CreateView):
@@ -35,4 +45,4 @@ class UserSignUp(CreateView):
         """"
         Redirects authenticate user to the profile page
         """
-        return reverse("users:profile", kwargs={"pk": self.request.user.pk})
+        return reverse("users:profile")

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <form class="row g-3" action="{% url "movies:movies_by_genres" %}" method="get">
+    <h2>All movies list</h2>
+    <hr class="my-4">
+    <form class="row g-3" action="{% url "movies:by_genres" %}" method="get">
         {% for field in form %}
             <div class="row mb-3">
                 <label class="col-sm-2 col-form-label">{{ field.label }}</label>
@@ -11,8 +12,9 @@
             </div>
         {% endfor %}
 
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input type="submit" class="btn btn-primary btn-lg w-100" value="Submit">
     </form>
+    <hr class="my-2">
 
     <div class="row row-cols-1 row-cols-md-4 g-4">
         {% for movie in movies %}
@@ -25,7 +27,11 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title font-weight-bold text-center"><a>{{ movie.title }}</a></h5>
+                        <h5 class="card-title font-weight-bold text-center">
+                            <a href="{{ movie.get_absolute_url }}">
+                                {{ movie.title }}
+                            </a>
+                        </h5>
                         <hr class="my-2">
                         <div class="container">
                             <div class="row justify-content-md">
@@ -50,6 +56,7 @@
                                     {{ movie.mark }}
                                 </div>
                             </div>
+
                             <div class="row justify-content-md">
                                 <div class="col col-2">
                                     <i class="fas fa-film"></i>
@@ -58,11 +65,12 @@
                                     Movie genres:
                                 </div>
                             </div>
+
                             <hr class="my-2">
                             <div>
                                 {% for genre in movie.genres.all %}
-                                    <a href="{% url "movies:movies_by_genres" %}?genres={{ genre.id }}"
-                                       class="btn btn-outline-dark">
+                                    <a href="{% url "movies:by_genres" %}?genres={{ genre.id }}"
+                                       class="btn btn-outline-dark btn-sm">
                                         {{ genre.title }}
                                     </a>
                                 {% endfor %}
