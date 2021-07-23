@@ -1,8 +1,7 @@
 import json
 
-from django.db.utils import IntegrityError
 from django.core.management.base import BaseCommand, CommandError
-from django.utils import timezone
+from django.db.utils import IntegrityError
 
 from movies.models import Movie, Genre, MovieSeries
 
@@ -11,8 +10,8 @@ class Command(BaseCommand):
     help = ''
 
     def add_arguments(self, parser):
-        parser.add_argument('--only_movies', action='store_true', help="")
-        parser.add_argument('--number_of_movies', type=int, help="")
+        parser.add_argument('--only_movies', action='store_true', help="Add to database only movies with movies "
+                                                                       "series. (In case if genres already exists)")
 
     def handle(self, *args, **options):
         if not options.get('only_movies'):
