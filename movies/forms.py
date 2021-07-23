@@ -1,5 +1,6 @@
 from django import forms
-from .models import Genre, Mark
+
+from .models import Genre, Mark, Comment
 
 ORDER_CHOICES = [
     ('mark', 'Rating ascending'),
@@ -9,6 +10,7 @@ ORDER_CHOICES = [
     ('title', 'Title (A-Z)'),
     ('-title', 'Title (Z-A)'),
 ]
+
 
 
 class GenreForm(forms.Form):
@@ -31,4 +33,13 @@ class MovieMarkForm(forms.ModelForm):
         fields = ("mark",)
         widgets = {
             "mark": forms.NumberInput(attrs={"max": 10, "default": 1})
+        }
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ("message",)
+        widgets = {
+            "message": forms.TextInput(attrs={"class": "form-control"})
         }

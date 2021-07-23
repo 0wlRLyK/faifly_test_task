@@ -1,8 +1,9 @@
+from django.conf import settings
 from django.db import models
 from django.db.models.signals import pre_save, post_save
-from django.conf import settings
-from django.urls import reverse
 from django.dispatch import receiver
+from django.urls import reverse
+from django.utils.timezone import now
 
 
 class AbstractBaseFields(models.Model):
@@ -50,6 +51,10 @@ class Movie(AbstractBaseFields):
 
 class Comment(AbstractUserMovieFields):
     message = models.TextField()
+    created_datetime = models.DateTimeField(auto_created=True, default=now)
+
+    class Meta:
+        ordering = ["-created_datetime"]
 
 
 class Mark(AbstractUserMovieFields):
@@ -82,7 +87,6 @@ def set_avg_mark(sender, instance, *args, **kwargs):
     mark = sender.objects.filter(movie_id=instance.movie_id).values("id").annotate(
         total=models.Sum("mark", output_field=models.IntegerField())
     ).aggregate(average=models.Avg(models.F("total")))
-    print(mark)
     movie = Movie.objects.get(id=instance.movie_id)
     movie.mark = mark["average"]
     movie.save()

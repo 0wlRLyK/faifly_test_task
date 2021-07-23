@@ -1,13 +1,13 @@
-from django.views import generic
-from django.db.models import Avg
-from django.views.generic.edit import FormMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseForbidden, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
+from django.views import generic
 from django.views.generic.detail import SingleObjectMixin
+from django.views.generic.edit import FormMixin
 
-from .models import Movie, Genre, MoviesList, MovieSeries, Mark
-from .forms import GenreForm, MovieMarkForm
+from . import mixins
+from .forms import GenreForm, MovieMarkForm, CommentForm
+from .models import Movie, Genre, MoviesList, Mark, Comment
 
 
 class MoviesListByGenres(FormMixin, generic.ListView):
@@ -29,9 +29,12 @@ class MoviesListByGenres(FormMixin, generic.ListView):
         return super().get_context_data()
 
 
-class MovieDetails(FormMixin, generic.DetailView):
-    form_class = MovieMarkForm
-    queryset = Movie.objects.all().select_related("movie_series")
+class MovieDetails(mixins.MultiFormView, generic.DetailView):
+    form_classes = {
+        "mark": MovieMarkForm,
+        "comment": CommentForm
+    }
+    queryset = Movie.objects.all().select_related("movie_series").prefetch_related("movies_comment_related__user")
     template_name = "movies/movie_details.html"
     context_object_name = "movie"
 
@@ -51,15 +54,27 @@ class MovieDetails(FormMixin, generic.DetailView):
         return context
 
     def post(self, request, *args, **kwargs):
-        form = self.get_form()
+        forms = self.get_forms()
         movie = self.get_object()
-        if form.is_valid():
+        if forms["mark"].is_valid():
             try:
-                Mark.objects.create(user_id=self.request.user.id, movie_id=movie.id, mark=form.cleaned_data.get("mark"))
+                Mark.objects.create(
+                    user_id=self.request.user.id,
+                    movie_id=movie.id,
+                    mark=forms["mark"].cleaned_data.get("mark")
+                )
             except Exception:
                 return HttpResponseForbidden("You already rate this film")
             return HttpResponseRedirect(reverse("movies:movie_details", args=[movie.id]))
+        if forms["comment"].is_valid():
+            Comment.objects.create(
+                user_id=self.request.user.id,
+                movie_id=movie.id,
+                message=forms["comment"].cleaned_data.get("message")
+            )
         return HttpResponseRedirect(reverse("movies:movie_details", args=[movie.id]))
+
+
 
 class MoviesListDetails(generic.DetailView):
     queryset = MoviesList.objects.select_related("user").prefetch_related("movies__genres").all()

@@ -1,8 +1,10 @@
-from django.views.generic import CreateView, DetailView
-from django.urls import reverse
-from django.contrib.auth import get_user_model, authenticate, login
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.views.generic import CreateView, DetailView
+
 from movies.models import MoviesList
 
 
@@ -35,14 +37,15 @@ class UserSignUp(CreateView):
         """
         If form is valid - authenticates registered user
         """
-        reg_user = form.save()
+        form.save()
         reg_user = authenticate(username=form.cleaned_data['username'],
                                 password=form.cleaned_data['password1'])
-        login(self.request, reg_user)
-        return super().form_valid(form)
+        if reg_user:
+            login(self.request, reg_user)
+            return HttpResponseRedirect(self.get_success_url())
 
     def get_success_url(self):
         """"
         Redirects authenticate user to the profile page
         """
-        return reverse("users:profile")
+        return reverse("users:profile_by_id", kwargs={"pk": self.request.user.pk})

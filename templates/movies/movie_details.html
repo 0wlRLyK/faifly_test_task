@@ -15,10 +15,10 @@
                 {% if not rated %}
                     <form method="post">
                         {% csrf_token %}
-                        {% for hidden in form.hidden_fields %}
+                        {% for hidden in forms.mark.hidden_fields %}
                             {{ hidden }}
                         {% endfor %}
-                        {% for field in form.visible_fields %}
+                        {% for field in forms.mark.visible_fields %}
                             <div class="mb-3">
                                 <label for="{{ field.html_name }}" class="form-label">{{ field.label }}</label>
                                 {#            {{ field.field.widget.input_type }}#}
@@ -122,6 +122,48 @@
             {% endfor %}
         </div>
     {% endif %}
+    <br class="my-4">
+    <h2>Comments:</h2>
+    <hr class="my-2">
+    <form method="post">
+        {% csrf_token %}
+        {% for hidden in forms.comment.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {% for field in forms.comment.visible_fields %}
+            <div class="mb-3">
+                <label for="{{ field.html_name }}" class="form-label">{{ field.label }}</label>
+                {#            {{ field.field.widget.input_type }}#}
+                {% if field.field.widget.input_type == "checkbox" %}
+                    {{ field |add_class:"form-check-input" }}
+                {% else %}
+                    {{ field |add_class:"form-control" }}
+                {% endif %}
+
+                <div class="form-text">{{ field.help_text }}</div>
+                <div class="form-text">{{ field.errors }}</div>
+
+            </div>
+        {% endfor %}
+
+        <input type="submit" class="btn btn-primary btn-lg w-100" value="Submit">
+    </form>
+    <br class="my-2">
+    <div class="list-group">
+        {% for comment in movie.movies_comment_related.all %}
+
+            <div class="list-group-item" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ comment.user.username }}</h5>
+                    <small>{{ comment.created_datetime }}</small>
+                </div>
+                <p class="mb-1">{{ comment.message }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
     <div class="modal fade" id="addToListModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
